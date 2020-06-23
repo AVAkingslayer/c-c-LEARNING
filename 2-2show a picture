@@ -1,0 +1,30 @@
+//Example 2-1. A simple OpenCV program that loads an image from disk and displays it
+//on the screen
+// Example 2-2. Same as Example 2-1 but employing the “using namespace” directive
+
+#include "opencv2/highgui/highgui.hpp"
+#include <iostream>
+using namespace cv; 
+int main()
+{
+
+	// imread读取一张图片， 创建一个Mat的图片对象，把读取到的图片赋值给Mat
+	Mat src = imread("E:/Projects/Opecv/images/2.jpg");//这里的斜杠是从右向左斜，不要跟转义字符搞混了
+	if (src.empty()) 
+	{
+		printf("图片资源不存在");
+		return -1;
+	}
+
+	// 创建一个窗口，CV_WINDOW_AUTOSIZE 是窗口自动大小
+	namedWindow("2-2 opencv setup", CV_WINDOW_AUTOSIZE);
+
+	// 把创建的图片对象显示在窗口上
+
+	// @param "2-2 opencv setup" 是窗口名称，跟上面创建的窗体要一一对应
+	// @param src 就是上面创建的图片对象
+	imshow("2-2 opencv setup", src);
+	waitKey(0);
+
+	std::cout << "Hello World!\n";
+}
